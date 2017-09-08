@@ -12,7 +12,7 @@ uniform float HPD_Gamma <
 	ui_type = "drag";
 	ui_min = 1.00; ui_max = 3.00;
 	ui_label = "Gamma value";
-	ui_tooltip = "Most monitors/images use a value of 2.2. Setting this to 1 disables the pre-tonemapping degamma of the game image, causing that ugly washed out effect you see in SweetFx tonemapping implementations.";
+	ui_tooltip = "Most monitors/images use a value of 2.2. Setting this to 1 disables the pre-tonemapping degamma of the game image, causing a washed out effect.";
 > = 2.2;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -38,12 +38,6 @@ float3 hpd_main_opt( float2 texcoord : TexCoord ) : COLOR
 	// HPD
 	float3 x = max(0,texColor-0.004);
 	float3 retColor = (x*(6.2*x+.5))/(x*(6.2*x+1.7)+0.06);
-    
-	// Do the post-tonemapping gamma correction
-	if( HPD_Gamma > 1.00 )
-		retColor = pow(color,1/HPD_Gamma);
-	else
-		retColor = pow(color,1/2.2);
 	
 	return retColor;
 }
