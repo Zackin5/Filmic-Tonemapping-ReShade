@@ -31,7 +31,7 @@ float3 hpd_main_opt( float2 texcoord : TexCoord ) : COLOR
 	
 	// Do inital de-gamma of the game image to ensure we're operating in the correct colour range.
 	if( HPD_Gamma > 1.00 )
-		texColor = pow(texColor,U2_Gamma);
+		texColor = pow(texColor,HPD_Gamma);
 		
 	texColor *= HPD_Exp;  // Exposure Adjustment
 

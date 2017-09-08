@@ -60,21 +60,21 @@ float3 aces_main_nark( float2 texcoord : TexCoord ) : COLOR
 	float3 texColor = tex2D(ReShade::BackBuffer, texcoord ).rgb;
 	
 	// Do inital de-gamma of the game image to ensure we're operating in the correct colour range.
-	if( HPD_Gamma > 1.00 )
+	if( ACESN_Gamma > 1.00 )
 		texColor = pow(texColor,ACESN_Gamma);
 		
 	texColor *= ACESN_Exp;  // Exposure Adjustment
 
 	// ACES
-	float3 retColor = saturate((texColor*(ACESN_A*texColor+ACESN_B))/(texColor*(ACESN_C*texColor+ACESN_D)+ACESN_E));
+	texColor = saturate((texColor*(ACESN_A*texColor+ACESN_B))/(texColor*(ACESN_C*texColor+ACESN_D)+ACESN_E));
     
 	// Do the post-tonemapping gamma correction
-	if( U2_Gamma > 1.00 )
-		retColor = pow(color,1/U2_Gamma);
+	if( ACESN_Gamma > 1.00 )
+		texColor = pow(texColor,1/ACESN_Gamma);
 	else
-		retColor = pow(color,1/2.2);
+		texColor = pow(texColor,1/2.2);
 	
-	return retColor;
+	return texColor;
 }
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
