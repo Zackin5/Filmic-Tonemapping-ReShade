@@ -47,7 +47,7 @@ float3 hpd_main_opt( float2 texcoord : TexCoord ) : COLOR
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-technique HaarmPieterDuikerOptimized
+technique HaarmPieterDuikerSimple
 {
 	pass
 	{
