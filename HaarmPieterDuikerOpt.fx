@@ -12,7 +12,7 @@ uniform float HPD_Gamma <
 	ui_type = "drag";
 	ui_min = 1.00; ui_max = 3.00;
 	ui_label = "Gamma value";
-	ui_tooltip = "Most monitors/images use a value of 2.2. Setting this to 1 disables the pre-tonemapping degamma of the game image, causing that ugly washed out effect you see in the SweetFx implementation.";
+	ui_tooltip = "Most monitors/images use a value of 2.2. Setting this to 1 disables the pre-tonemapping degamma of the game image, causing that ugly washed out effect you see in SweetFx tonemapping implementations.";
 > = 2.2;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
