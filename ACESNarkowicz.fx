@@ -71,8 +71,6 @@ float3 aces_main_nark( float2 texcoord : TexCoord ) : COLOR
 	// Do the post-tonemapping gamma correction
 	if( ACESN_Gamma > 1.00 )
 		texColor = pow(texColor,1/ACESN_Gamma);
-	else
-		texColor = pow(texColor,1/2.2);
 	
 	return texColor;
 }

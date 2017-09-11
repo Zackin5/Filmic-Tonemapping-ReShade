@@ -68,8 +68,6 @@ float3 aces_main_bakinglab( float2 texcoord : TexCoord ) : COLOR
 	// Do the post-tonemapping gamma correction
 	if( ACESBL_Gamma > 1.00 )
 		texColor = pow(texColor,1/ACESBL_Gamma);
-	else
-		texColor = pow(texColor,1/2.2);
 	
 	return texColor;
 }

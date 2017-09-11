@@ -87,15 +87,12 @@ float3 Uncharted_Tonemap_Main( float2 texcoord : TexCoord ) : COLOR
 
 	float3 whiteScale = 1.0f/Uncharted2Tonemap(U2_W);
 	float3 color = curr*whiteScale;
-	float3 retColor;
     
 	// Do the post-tonemapping gamma correction
 	if( U2_Gamma > 1.00 )
-		retColor = pow(color,1/U2_Gamma);
-	else
-		retColor = pow(color,1/2.2);
+		color = pow(color,1/U2_Gamma);
 	
-	return retColor;
+	return color;
 }
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
