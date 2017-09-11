@@ -1,5 +1,5 @@
 # Filmic-Tonemapping-ReShade
-Gamma-correct filmic tonemapping shaders for ReShade. Currently includes the Uncharted 2 tonemap, a simplified Haarm-Pieter Duiker and different ACES curve implementations, may include Reinhard variants in the future.
+Gamma-correct filmic tonemapping shaders for ReShade. Includes the Uncharted 2 tonemap, a simplified Haarm-Pieter Duiker and different variants on ACES and Reinhard implementations.
 
 ## Credits
 Inspiration and code came from the following works:
