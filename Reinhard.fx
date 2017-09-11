@@ -1,5 +1,5 @@
 // Reshade port of Reinhard tonemap
-// Base code sourced from John Hable's blog at http://filmicworlds.com/blog/filmic-tonemapping-operators/
+// Based on code from John Hable's and Tom Madams' blogs at http://filmicworlds.com/blog/filmic-tonemapping-operators/ and https://imdoingitwrong.wordpress.com/2010/08/19/why-reinhard-desaturates-my-blacks-3/ respectively
 // by Jace Regenbrecht
 
 uniform bool R_Lum <
@@ -62,20 +62,29 @@ float3 Reinhard_Tonemap_Main( float2 texcoord : TexCoord ) : COLOR
 	texColor *= R_Exp;  // Exposure Adjustment
 	
 	float3 processColor;
+	float lum;
 	
 	// Determine if we're operating on luminance or RGB
 	if(R_Lum)
 	{
-		float lum = 0.2126f * texColor[0] + 0.7152 * texColor[1] + 0.0722 * texColor[2];
-		processColor = float3(lum, lum, lum);
+		lum = 0.2126f * texColor[0] + 0.7152 * texColor[1] + 0.0722 * texColor[2];
+		processColor = float3(lum, 0, 0);
 	}
+	else
 		processColor = texColor;
 	
-	// Run the equation
+	// Run the tonemapping equations
 	if(R_Simple)
 		processColor = ReinhardSimple(processColor);
 	else
 		processColor = ReinhardComplex(processColor, R_W);
+	
+	// Do luminance adjustments
+	if(R_Lum)
+	{
+		float lumScale = processColor / lum;
+		processColor = texColor * lumScale;
+	}
     
 	// Do the post-tonemapping gamma correction
 	if( R_Gamma > 1.00 )
