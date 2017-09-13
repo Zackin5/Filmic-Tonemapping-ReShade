@@ -46,7 +46,7 @@ float3 RRTAndODTFit(float3 v)
     return a / b;
 }
 
-float3 aces_main_bakinglab( float2 texcoord : TexCoord ) : COLOR
+float3 aces_main_bakinglab(float4 pos : SV_Position, float2 texcoord : TexCoord ) : COLOR
 {
 	float3 texColor = tex2D(ReShade::BackBuffer, texcoord ).rgb;
 	

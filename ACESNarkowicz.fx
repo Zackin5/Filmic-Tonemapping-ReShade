@@ -55,7 +55,7 @@ uniform float ACESN_Gamma <
 //
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-float3 aces_main_nark( float2 texcoord : TexCoord ) : COLOR
+float3 aces_main_nark(float4 pos : SV_Position, float2 texcoord : TexCoord ) : COLOR
 {
 	float3 texColor = tex2D(ReShade::BackBuffer, texcoord ).rgb;
 	

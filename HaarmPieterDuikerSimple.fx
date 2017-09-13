@@ -25,7 +25,7 @@ uniform float HPD_Gamma <
 //
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-float3 hpd_main_opt( float2 texcoord : TexCoord ) : COLOR
+float3 hpd_main_opt(float4 pos : SV_Position, float2 texcoord : TexCoord ) : COLOR
 {
 	float3 texColor = tex2D(ReShade::BackBuffer, texcoord ).rgb;
 	

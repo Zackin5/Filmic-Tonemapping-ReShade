@@ -51,7 +51,7 @@ float3 ReinhardComplex(float3 x, float white)
 	return (x*(1+(x/pow(white, 2))))/(1+x);
 }
 
-float3 Reinhard_Tonemap_Main( float2 texcoord : TexCoord ) : COLOR
+float3 Reinhard_Tonemap_Main(float4 pos : SV_Position, float2 texcoord : TexCoord ) : COLOR
 {
 	float3 texColor = tex2D(ReShade::BackBuffer, texcoord ).rgb;
 	

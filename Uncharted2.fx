@@ -72,7 +72,7 @@ float3 Uncharted2Tonemap(float3 x)
 	return ((x*(U2_A*x+U2_C*U2_B)+U2_D*U2_E)/(x*(U2_A*x+U2_B)+U2_D*U2_F))-U2_E/U2_F;
 }
 
-float3 Uncharted_Tonemap_Main( float2 texcoord : TexCoord ) : COLOR
+float3 Uncharted_Tonemap_Main(float4 pos : SV_Position, float2 texcoord : TexCoord ) : COLOR
 {
 	float3 texColor = tex2D(ReShade::BackBuffer, texcoord ).rgb;
 	
