@@ -1,5 +1,5 @@
 // Reshade port of luminance ACES curve from The Baking Lab demo.
-// Base code sourced from Matt Pettineo's work at https://github.com/TheRealMJP/BakingLab
+// Base code sourced from Matt Pettineo's and Stephen Hill's work at https://github.com/TheRealMJP/BakingLab/blob/master/BakingLab/ACES.hlsl
 // by Jace Regenbrecht
 
 uniform float ACESBL_Exp <
