@@ -28,7 +28,7 @@ uniform float R_Gamma <
 	ui_type = "drag";
 	ui_min = 1.00; ui_max = 3.00;
 	ui_label = "Gamma value";
-	ui_tooltip = "Most monitors/images use a value of 2.2. Setting this to 1 disables the pre-tonemapping degamma of the game image, causing that ugly washed out effect you see in the SweetFx implementation.";
+	ui_tooltip = "Most monitors/images use a value of 2.2. Setting this to 1 disables the inital color space conversion from gamma to linear.";
 > = 2.2;
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -100,7 +100,7 @@ float3 Reinhard_Tonemap_Main(float4 pos : SV_Position, float2 texcoord : TexCoor
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
-technique REINHARD
+technique Reinhard
 {
 	pass
 	{
